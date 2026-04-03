@@ -46,7 +46,7 @@ $(SCHEMES): deps
 	chmod -R 0755 "$(STAGE)/Payload/$@.app"
 	codesign --force --sign - --timestamp=none "$(STAGE)/Payload/$@.app"
 
-	cp deps/* "$(STAGE)/Payload/$@.app/" || true
+	cp -r deps/. "$(STAGE)/Payload/$@.app/" 2>/dev/null || true
 
 	rm -rf "$(STAGE)/Payload/$@.app/_CodeSignature"
 	ln -sf "$(STAGE)/Payload" Payload
