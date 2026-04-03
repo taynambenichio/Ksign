@@ -17,6 +17,7 @@ clean:
 deps:
 	rm -rf deps || true
 	mkdir -p deps
+	mkdir -p deps/signing-assets && cp -r Ksign/signing-assets/* deps/signing-assets/ 2>/dev/null || true
 	curl -L -o deps/server.crt https://backloop.dev/backloop.dev-cert.crt || true
 	curl -L -o deps/server.key1 https://backloop.dev/backloop.dev-key.part1.pem || true
 	curl -L -o deps/server.key2 https://backloop.dev/backloop.dev-key.part2.pem || true
